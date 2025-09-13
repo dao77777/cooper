@@ -1,5 +1,10 @@
 # Cooper
 
+## Cooperation
+
+- Code: [Github](https://github.com/)
+- Graph: [Excalidraw](https://excalidraw.com/)
+
 ## Tec
 
 - Frontend: Next.js
@@ -7,7 +12,7 @@
 - DB: Postgres
 - Vector: Pg-vector
 
-## 数据库设计
+## Database Design
 
 **Chat**
 - content
@@ -19,9 +24,9 @@
 - username
 - password
 
-## 流程设计
+## Flow Design
 
-**对话流程**: TODO
+**Dialogue Flow**: TODO
 
 ## Document Ref
 
