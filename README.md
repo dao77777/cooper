@@ -8,6 +8,12 @@
 ## Tec
 
 - Frontend: Next.js
+  - Style: Tailwind
+  - Component: Shadcn
+  - Form: React Hook Form
+  - Animate: Framer motion
+  - Async State: React Query
+  - Icon: Lucide React
 - Backend: Go Frame
 - DB: Postgres
 - Vector: Pg-vector
