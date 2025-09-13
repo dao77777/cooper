@@ -12,6 +12,10 @@
 - DB: Postgres
 - Vector: Pg-vector
 
+## Project Structure
+
+Frontend Name: xxxxx
+
 ## Database Design
 
 **Chat**
