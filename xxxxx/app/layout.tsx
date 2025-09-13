@@ -1,5 +1,9 @@
+'use client'
+
 import type { Metadata } from "next";
 import "./globals.css";
+import { ReactQueryProvider } from "./_lib/react-query/_provider";
+import { ThemeProvider } from "./_lib/theme/_provider";
 
 export const metadata: Metadata = {
   title: "xxxxx",
@@ -16,7 +20,11 @@ export default function RootLayout({
       <body
         className={`antialiased`}
       >
-        {children}
+        <ReactQueryProvider>
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );
