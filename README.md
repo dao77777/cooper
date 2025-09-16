@@ -50,3 +50,5 @@ Frontend Name: xxxxx
 ## Document Ref
 
 [MCP Official](https://modelcontextprotocol.io/docs/getting-started/intro)
+
+[Eino](https://www.cloudwego.io/docs/eino/)
