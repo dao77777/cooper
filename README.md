@@ -5,6 +5,10 @@
 - Code: [Github](https://github.com/)
 - Graph: [Excalidraw](https://excalidraw.com/)
 
+## CICD
+
+TODO
+
 ## Tec
 
 - Frontend: Next.js

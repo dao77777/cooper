@@ -1,5 +1,3 @@
-'use client'
-
 import type { Metadata } from "next";
 import "./globals.css";
 import { ReactQueryProvider } from "./_lib/react-query/_provider";

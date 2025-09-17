@@ -1,8 +1,9 @@
-import { createContext, FC, memo, ReactNode } from "react";
+'use client'
+import { createContext, FC, memo, ReactNode, useContext } from "react";
 
 export type ThemeCtx = {
   /** Primary Color */
-  primaryColor?: string
+  primaryColor: string
   /** Function Color */
   successColor?: string
   warningColor?: string
