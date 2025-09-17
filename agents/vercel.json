@@ -1,0 +1,19 @@
+{
+  "version": 3,
+  "builds": [
+    {
+      "src": "main.go",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "bin"
+      }
+    }
+  ],
+  "buildCommand": "go build -o bin/server .",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/bin/server"
+    }
+  ]
+}
