@@ -9,8 +9,8 @@ import "github.com/sashabaranov/go-openai"
 
 type (
 	IClient interface {
-		GetDeepseekModel(apiKey string) *openai.Client
-		Query(question string, apiKey string) (string, error)
+		GetDeepseekModel() *openai.Client
+		Query(question string) (string, error)
 	}
 )
 

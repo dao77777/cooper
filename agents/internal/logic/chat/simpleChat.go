@@ -3,6 +3,9 @@ package chat
 import (
 	"context"
 	"fmt"
+	"os"
+
+	"agents/internal/service"
 
 	"github.com/sashabaranov/go-openai"
 )
@@ -12,29 +15,30 @@ var (
 )
 
 type sClient struct {
-	Clients map[string]*openai.Client
+	Client *openai.Client
 }
 
-//func init() {
-//	service.RegisterAgg(NewChatModels())
-//}
+func init() {
+	service.RegisterClient(NewChatModels())
+}
 
 func NewChatModels() *sClient {
 	return &sClient{}
 }
 
-func (cm *sClient) GetDeepseekModel(apiKey string) *openai.Client {
-	if _, ok := cm.Clients[apiKey]; ok {
+func (cm sClient) GetDeepseekModel() *openai.Client {
+	if cm.Client == nil {
+		apiKey := os.Getenv("API-KEY")
 		config := openai.DefaultConfig(apiKey)
 		config.BaseURL = "https://ark.cn-beijing.volces.com/api/v3"
-		client := openai.NewClientWithConfig(config)
-		cm.Clients[apiKey] = client
+		cm.Client = openai.NewClientWithConfig(config)
 	}
-	return cm.Clients[apiKey]
+
+	return cm.Client
 }
 
-func (cm *sClient) Query(question, apiKey string) (string, error) {
-	client := cm.GetDeepseekModel(apiKey)
+func (cm sClient) Query(question string) (string, error) {
+	client := cm.GetDeepseekModel()
 	resp, err := client.CreateChatCompletion(
 		context.Background(),
 		openai.ChatCompletionRequest{
