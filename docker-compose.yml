@@ -11,5 +11,5 @@ services:
   #   build: ./agents
   #   container_name: agents
   #   ports:
-  #     - "8002:8002"
+  #     - "8000:8000"
   #   restart: unless-stopped
