@@ -1,5 +1,17 @@
 'use client'
+
 import { createContext, FC, memo, ReactNode, useContext } from "react";
+
+// primaryColor: #FFA2A2
+// successColor: #CCE023,
+// warningColor: #FFDAC1
+// errorColor: #FF4D4F
+// #F8F4F0
+// 背景色: [white], bg-neutral-50, bg-neutral-100, bg-neutral-200
+// 前景色: [bg-neutral-950], bg-neutral-600, bg-neutral-400
+// 悬浮 padding: p-1.5, 布局 padding: [p-5]
+// 间距: [gap-5], gap-6
+// 过渡时间: duration-300
 
 export type ThemeCtx = {
   /** Primary Color */
