@@ -38,6 +38,7 @@ main:
             script:
               - echo hello world
               - cd /home/fujie/workload/cooper
+              - git config --global --add safe.directory /home/fujie/workload/cooper
               - git pull
               - docker compose pull
               - docker compose up --build -d
