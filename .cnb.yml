@@ -16,7 +16,7 @@ main:
     - services:
         - docker
       imports:
-        - https://cnb.cool/dao77777.cloud/secrets/envs.yml
+        - https://cnb.cool/dao77777.cloud/secrets/env.yml
       stages:
         # Build & push agents
         - name: docker build
