@@ -76,3 +76,10 @@ Frontend Name: xxxxx
 [MCP Official](https://modelcontextprotocol.io/docs/getting-started/intro)
 
 [Eino](https://www.cloudwego.io/docs/eino/)
+
+## Other
+
+- [ ] cache, artifacts concept
+- [ ] how to manage binary service in linux server
+- [ ] choose a plan to solve cicd problem: cnb.cool, github ??, gitlab
+
