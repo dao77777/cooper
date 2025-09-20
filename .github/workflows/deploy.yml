@@ -22,15 +22,16 @@ jobs:
         with:
           context: ./agents
           push: true
-          tags: ${{ secrets.DOCKER_REGISTRY }}/agents:latest
+          tags: ${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_NAMESPACE }}/agents:latest
       - name: Build and push Yyyyy Docker image
         uses: docker/build-push-action@v6
         with:
           context: ./yyyyy
           push: true
-          tags: ${{ secrets.DOCKER_REGISTRY }}/yyyyy:latest
+          tags: ${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_NAMESPACE }}/yyyyy:latest
   deploy:
     runs-on: self-hosted
+    needs: build-and-push
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
