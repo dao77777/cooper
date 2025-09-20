@@ -38,8 +38,8 @@ main:
             port: 22
             script:
               - cd ~/cooper
-              - echo ${CNB_DOCKER_REGISTRY}
               - export DOCKER_REGISTRY=${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}
+              - export BYTE_DANCE_AI_MODEL_API_KEY=${BYTE_DANCE_AI_MODEL_API_KEY}
               - git pull
               - docker compose pull
               - docker compose up --build -d

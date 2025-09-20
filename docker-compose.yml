@@ -6,10 +6,14 @@ services:
     container_name: yyyyy
     ports:
       - "8001:8001"
+    environment:
+      - name=value
     restart: unless-stopped
   agents:
-   image: ${DOCKER_REGISTRY}/agents:latest
-   container_name: agents
-   ports:
-     - "8000:8000"
-   restart: unless-stopped
+    image: ${DOCKER_REGISTRY}/agents:latest
+    container_name: agents
+    environment:
+      - API_KEY=${BYTE_DANCE_AI_MODEL_API_KEY}
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
