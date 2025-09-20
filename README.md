@@ -7,6 +7,11 @@
 
 ## CICD
 
+[Github actions workflow](https://docs.github.com/en/actions): https://docs.github.com/en/actions
+- Make tencent server a github runner
+- Write a file `/.github/workflows/deploy.yml`
+- Github actions will use docker to deploy project on my self-hosted github runner
+
 Supabase: 0.5GB database size limit for free plan
 - Project URL: https://tazbxhcenftqutkltoax.supabase.co
 
@@ -14,9 +19,15 @@ Virtual Machine Domain: https://cooper-vm.dao77777.space/
 - ip: 150.158.158.227
 - user: root, ubuntu(tencent builtin), lighthouse(tencent builtin), dao77777, fujie
 
-Frontend Domain: https://cooper.dao77777.space/, deployed on vercel
+Frontend: https://cooper.dao77777.space/, deployed on vercel
 
-Backend Deploy: TODO
+Agents: https://cooper-agents.dao77777.space/
+
+Yyyyy: https://cooper-yyyyy.dao77777.space/
+
+Nginx: reverse proxy
+
+Certbot: Certificate auto renew
 
 ## Tec
 

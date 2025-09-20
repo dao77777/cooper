@@ -2,13 +2,13 @@ version: "3.9"
 
 services:
   yyyyy:
-    build: ./yyyyy
+    image: ccr.ccs.tencentyun.com/yyyyy:latest
     container_name: yyyyy
     ports:
       - "8001:8001"
     restart: unless-stopped
   agents:
-   build: ./agents
+   image: ccr.ccs.tencentyun.com/agents:latest
    container_name: agents
    ports:
      - "8000:8000"
