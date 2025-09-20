@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*json tsconfig.json src ./
 
 RUN npm install && \
-    npm ci && \
+    # npm ci && \
     npm run build && \
     npm prune --production
 

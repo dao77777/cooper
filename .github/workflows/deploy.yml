@@ -1,5 +1,11 @@
 name: Cooper Deployment
 
+env:
+  DOCKER_REGISTRY: ${{ secrets.DOCKER_REGISTRY }}
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+  DOCKER_NAMESPACE: ${{ secrets.DOCKER_NAMESPACE }}
+
 on:
   push:
     branches:

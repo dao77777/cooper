@@ -2,13 +2,13 @@ version: "3.9"
 
 services:
   yyyyy:
-    image: ccr.ccs.tencentyun.com/cooper-agent/yyyyy:latest
+    image: ${DOCKER_REGISTRY}/${DOCKER_NAMESPACE}/yyyyy:latest
     container_name: yyyyy
     ports:
       - "8001:8001"
     restart: unless-stopped
   agents:
-   image: ccr.ccs.tencentyun.com/cooper-agent/agents:latest
+   image: ${DOCKER_REGISTRY}/${DOCKER_NAMESPACE}/agents:latest
    container_name: agents
    ports:
      - "8000:8000"
