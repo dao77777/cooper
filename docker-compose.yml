@@ -7,7 +7,7 @@ services:
     ports:
       - "8001:8001"
     restart: unless-stopped
- agents:
+  agents:
    build: ./agents
    container_name: agents
    ports:
