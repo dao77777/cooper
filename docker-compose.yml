@@ -2,13 +2,13 @@ version: "3.9"
 
 services:
   yyyyy:
-    image: ${DOCKER_REGISTRY}/${DOCKER_NAMESPACE}/yyyyy:latest
+    image: ${DOCKER_REGISTRY}/yyyyy:latest
     container_name: yyyyy
     ports:
       - "8001:8001"
     restart: unless-stopped
   agents:
-   image: ${DOCKER_REGISTRY}/${DOCKER_NAMESPACE}/agents:latest
+   image: ${DOCKER_REGISTRY}/agents:latest
    container_name: agents
    ports:
      - "8000:8000"

@@ -10,3 +10,22 @@
   # checkout
   # artifact download: docker login, docker pull
   # deploy: docker compose up -d --build
+main:
+  push:
+    - services:
+        - docker  # 若使用Docker镜像需声明
+      imports:
+        - https://cnb.cool/dao77777.cloud/secrets/envs.yml
+    - stages:
+        - name: deploy
+          image: tencentcom/ssh
+          settings:
+            host: $TENCENT_SERVER_HOST
+            username: $TENCENT_SERVER_USER
+            password: $TENCENT_SERVER_PASSWORD
+            port: 22
+            script:
+              - echo hello world
+              - echo test > ~/test.txt
+              - docker compose pull
+              - docker compose up --build -d
