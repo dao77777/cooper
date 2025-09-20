@@ -24,7 +24,7 @@ app.get('/', (c) => {
 
 serve({
   fetch: app.fetch,
-  port: parseInt(process.env.YYYYY_PORT) || 8001
+  port: parseInt(process.env.YYYYY_PORT ?? '8001')
 }, (info) => {
   console.log(`Server is running on http://localhost:${info.port}`)
 })
