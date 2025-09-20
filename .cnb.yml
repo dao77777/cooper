@@ -28,6 +28,7 @@ main:
           script: docker build -t ${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}/yyyyy:latest ./yyyyy
         - name: docker push
           script: docker push ${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}/yyyyy:latest
+        # Deploy by ssh connecting to my tencent server
         - name: deploy
           image: tencentcom/ssh
           settings:
@@ -37,6 +38,7 @@ main:
             port: 22
             script:
               - cd ~/cooper
+              - export DOCKER_REGISTRY=${CNB_DOCKER_REGISTRY}
               - git pull
               - docker compose pull
               - docker compose up --build -d
