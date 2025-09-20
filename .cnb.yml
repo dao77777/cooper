@@ -37,6 +37,7 @@ main:
             port: 22
             script:
               - echo hello world
-              - echo test > ~/test.txt
+              - cd /home/fujie/workload/cooper
+              - git pull
               - docker compose pull
               - docker compose up --build -d
