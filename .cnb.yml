@@ -10,3 +10,19 @@
   # checkout
   # artifact download: docker login, docker pull
   # deploy: docker compose up -d --build
+
+main:
+  push:
+    - services:
+        - docker
+      stages:
+        # Build & push agents
+        - name: docker build
+          script: docker build -t ${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}/agents:latest ./agents
+        - name: docker push
+          script: docker push ${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}/agents:latest
+        # Build & push yyyyy
+        - name: docker build
+          script: docker build -t ${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}/yyyyy:latest ./yyyyy
+        - name: docker push
+          script: docker push ${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}/yyyyy:latest
