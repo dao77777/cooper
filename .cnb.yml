@@ -1,0 +1,12 @@
+# cnb sever
+  # checkout
+  # artifact upload: docker login, build & push
+
+# turn tencent server to runner
+
+# docker registry, staytuned
+
+# tencent server
+  # checkout
+  # artifact download: docker login, docker pull
+  # deploy: docker compose up -d --build
