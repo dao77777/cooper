@@ -38,7 +38,8 @@ main:
             port: 22
             script:
               - cd ~/cooper
-              - export DOCKER_REGISTRY=${CNB_DOCKER_REGISTRY}
+              - echo ${CNB_DOCKER_REGISTRY}
+              - export DOCKER_REGISTRY=${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}
               - git pull
               - docker compose pull
               - docker compose up --build -d
