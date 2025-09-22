@@ -9,8 +9,6 @@ services:
       - YYYYY_PORT=${YYYYY_PORT}
     ports:
       - "8001:8001"
-    environment:
-      - name=value
     restart: unless-stopped
   agents:
     image: ${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}/agents:latest
