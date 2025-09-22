@@ -3,11 +3,11 @@ import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import { Pool } from 'pg'
 
-console.log('POSTGRES_CONNECTION:', process.env.POSTGRES_CONNECTION)
+console.log('TENCENT_POSTGRES_CONNECTION_STRING:', process.env.TENCENT_POSTGRES_CONNECTION_STRING)
 console.log('YYYYY_PORT:', process.env.YYYYY_PORT)
 
 const pool = new Pool({
-  connectionString: process.env.POSTGRES_CONNECTION,
+  connectionString: process.env.TENCENT_POSTGRES_CONNECTION_STRING,
 })
 
 pool.connect().then((value) => {

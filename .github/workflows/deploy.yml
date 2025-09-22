@@ -16,7 +16,7 @@ jobs:
             -w ${{ github.workspace }} \
             -e PLUGIN_TARGET_URL=${{ secrets.CNB_REPOSITORY }} \
             -e PLUGIN_AUTH_TYPE="https" \
-            -e PLUGIN_USERNAME=${{ secrets.CNB_GIT_PASSWORD }} \
-            -e PLUGIN_PASSWORD=${{ secrets.CNB_GIT_PASSWORD }} \
+            -e PLUGIN_USERNAME=${{ secrets.CNB_ORG_GIT_PASSWORD }} \
+            -e PLUGIN_PASSWORD=${{ secrets.CNB_ORG_GIT_PASSWORD }} \
             -e PLUGIN_FORCE="true" \
             tencentcom/git-sync

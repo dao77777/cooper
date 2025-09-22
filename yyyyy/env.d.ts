@@ -20,6 +20,7 @@ declare namespace NodeJS {
     SUPABASE_ANON_KEY: string
     SUPABASE_SERVICE_KEY: string
     POSTGRES_CONNECTION: string
+    TENCENT_POSTGRES_CONNECTION_STRING: string
     // Frontend
     FRONT_END_DOMAIN: string
   }

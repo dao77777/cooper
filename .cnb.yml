@@ -25,11 +25,13 @@ main:
             port: 22
             script:
               - cd ~/cooper
+              - echo ${CNB_DOCKER_REGISTRY}
+              - echo ${CNB_REPO_SLUG_LOWERCASE}
               - export CNB_DOCKER_REGISTRY=${CNB_DOCKER_REGISTRY}
               - export CNB_REPO_SLUG_LOWERCASE=${CNB_REPO_SLUG_LOWERCASE}
-              - export BYTE_DANCE_AI_MODEL_API_KEY=${BYTE_DANCE_AI_MODEL_API_KEY}
-              - export POSTGRES_CONNECTION=${POSTGRES_CONNECTION}
-              - export YYYYY_PORT=${YYYYY_PORT}
+              # - export BYTE_DANCE_AI_MODEL_API_KEY=${BYTE_DANCE_AI_MODEL_API_KEY}
+              # - export POSTGRES_CONNECTION=${POSTGRES_CONNECTION}
+              # - export YYYYY_PORT=${YYYYY_PORT}
               - git pull
               - docker compose pull
               - docker compose up --build -d
