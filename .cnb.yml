@@ -25,8 +25,6 @@ main:
             port: 22
             script:
               - cd ~/cooper
-              - echo ${CNB_DOCKER_REGISTRY}
-              - echo ${BYTE_DANCE_AI_MODEL_API_KEY}
               # - echo ${CNB_REPO_SLUG_LOWERCASE}
               # - export CNB_DOCKER_REGISTRY=${CNB_DOCKER_REGISTRY}
               # - export CNB_REPO_SLUG_LOWERCASE=${CNB_REPO_SLUG_LOWERCASE}
@@ -35,4 +33,4 @@ main:
               # - export YYYYY_PORT=${YYYYY_PORT}
               - git pull
               - docker compose pull
-              - docker compose up --build -d
+              - docker compose up --build -d --env-file ~/.env
