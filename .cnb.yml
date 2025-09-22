@@ -24,11 +24,10 @@ main:
             password: ${VIRTUAL_MACHINE_DEPLOY_PASSWORD}
             port: 22
             script:
-              # - env > ./.env
-              - env
               - cd ~/cooper
-              # - export DOCKER_REGISTRY=${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}
-              # - export BYTE_DANCE_AI_MODEL_API_KEY=${BYTE_DANCE_AI_MODEL_API_KEY}
+              - export CNB_DOCKER_REGISTRY=${CNB_DOCKER_REGISTRY}
+              - export CNB_REPO_SLUG_LOWERCASE=${CNB_REPO_SLUG_LOWERCASE}
+              - export BYTE_DANCE_AI_MODEL_API_KEY=${BYTE_DANCE_AI_MODEL_API_KEY}
               - git pull
               - docker compose pull
               - docker compose up --build -d
