@@ -1,22 +1,9 @@
-# cnb sever
-  # checkout
-  # artifact upload: docker login, build & push
-
-# turn tencent server to runner
-
-# docker registry, staytuned
-
-# tencent server
-  # checkout
-  # artifact download: docker login, docker pull
-  # deploy: docker compose up -d --build
-
 main:
   push:
     - services:
         - docker
       imports:
-        - https://cnb.cool/dao77777.cloud/secrets/-/blob/main/env.yml
+        - https://cnb.cool/dao77777.cloud/secrets/-/blob/main/.env
       stages:
         # Build & push agents
         - name: docker build
@@ -32,14 +19,15 @@ main:
         - name: deploy
           image: tencentcom/ssh
           settings:
-            host: ${TENCENT_SERVER_HOST}
-            username: ${TENCENT_SERVER_USER}
-            password: ${TENCENT_SERVER_PASSWORD}
+            host: ${VIRTUAL_MACHINE_DOMAIN}
+            username: ${VIRTUAL_MACHINE_DEPLOY_USERNAME}
+            password: ${VIRTUAL_MACHINE_DEPLOY_PASSWORD}
             port: 22
             script:
+              # - env > ./.env
               - cd ~/cooper
-              - export DOCKER_REGISTRY=${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}
-              - export BYTE_DANCE_AI_MODEL_API_KEY=${BYTE_DANCE_AI_MODEL_API_KEY}
+              # - export DOCKER_REGISTRY=${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}
+              # - export BYTE_DANCE_AI_MODEL_API_KEY=${BYTE_DANCE_AI_MODEL_API_KEY}
               - git pull
               - docker compose pull
               - docker compose up --build -d

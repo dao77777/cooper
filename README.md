@@ -83,3 +83,35 @@ Frontend Name: xxxxx
 - [ ] how to manage binary service in linux server
 - [ ] choose a plan to solve cicd problem: cnb.cool, github ??, gitlab
 
+Auto video generate 
+
+- Ability
+  - Query
+    - Text search
+    - Image search
+    - Video search
+    - Link download
+    - Map search
+    - Social Media 
+  - Transform
+    - Text2Image(DALLE3)
+    - Image2Image
+    - Image2Text
+    - OCR
+    - Video2Text
+    - Text2Video(Cpacut)
+    - Text2Text
+  - Display
+    - Charts
+  - Knowledge(RAG)
+    - Local: PDF, TXT, DOC, DOCX 
+    - Online: we can specify  update frequency
+    - How to segment
+    - How to search
+  - Memory
+    - Chat history
+    - Long-term memory
+  - File system
+  - Version manage 
+  - Publish to other platform 
+  - SCheduled task
