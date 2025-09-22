@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   yyyyy:
-    image: ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_URL}/yyyyy:latest
+    image: ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_SLUG}/yyyyy:latest
     container_name: yyyyy
     environment:
       - POSTGRES_CONNECTION=${POSTGRES_CONNECTION}
@@ -11,7 +11,7 @@ services:
       - "8001:8001"
     restart: unless-stopped
   agents:
-    image: ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_URL}/agents:latest
+    image: ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_SLUG}/agents:latest
     container_name: agents
     environment:
       - API_KEY=${BYTE_DANCE_AI_MODEL_API_KEY}

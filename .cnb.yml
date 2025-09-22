@@ -7,14 +7,14 @@ main:
       stages:
         # Build & push agents
         - name: docker build
-          script: docker build -t ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_URL}/agents:latest ./agents
+          script: docker build -t ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_SLUG}/agents:latest ./agents
         - name: docker push
-          script: docker push ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_URL}/agents:latest
+          script: docker push ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_SLUG}/agents:latest
         # Build & push yyyyy
         - name: docker build
-          script: docker build -t ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_URL}/yyyyy:latest ./yyyyy
+          script: docker build -t ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_SLUG}/yyyyy:latest ./yyyyy
         - name: docker push
-          script: docker push ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_URL}/yyyyy:latest
+          script: docker push ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_SLUG}/yyyyy:latest
         # Deploy by ssh connecting to my tencent server
         - name: deploy
           image: tencentcom/ssh
