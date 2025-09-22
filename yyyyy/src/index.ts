@@ -3,6 +3,9 @@ import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import { Pool } from 'pg'
 
+console.log('POSTGRES_CONNECTION:', process.env.POSTGRES_CONNECTION)
+console.log('YYYYY_PORT:', process.env.YYYYY_PORT)
+
 const pool = new Pool({
   connectionString: process.env.POSTGRES_CONNECTION,
 })
