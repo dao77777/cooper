@@ -4,6 +4,9 @@ services:
   yyyyy:
     image: ${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}/yyyyy:latest
     container_name: yyyyy
+    environment:
+      - POSTGRES_CONNECTION=${POSTGRES_CONNECTION}
+      - YYYYY_PORT=${YYYYY_PORT}
     ports:
       - "8001:8001"
     environment:
