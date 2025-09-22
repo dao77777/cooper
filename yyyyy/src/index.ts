@@ -1,20 +1,19 @@
 import 'dotenv/config'
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
-// import { Pool } from 'pg'
+import { Pool } from 'pg'
 
-// const pool = new Pool({
-//   connectionString: process.env.POSTGRES_CONNECTION,
-// })
+const pool = new Pool({
+  connectionString: process.env.POSTGRES_CONNECTION,
+})
 
-// pool.connect().then((value) => {
-//   console.log('Connected to Postgres')
-//   // console.log(value)
-//   value.query('SELECT NOW()').then((res) => {
-//     console.log('11', res.rows[0])
-//     value.release()
-//   })
-// })
+pool.connect().then((value) => {
+  console.log('Connected to Postgres')
+  value.query('SELECT NOW()').then((res) => {
+    console.log(res.rows[0])
+    value.release()
+  })
+})
 
 const app = new Hono()
 

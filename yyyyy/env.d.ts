@@ -1,7 +1,6 @@
 declare namespace NodeJS {
   interface ProcessEnv {
     NODE_ENV: 'development' | 'production' | 'test';
-    API_KEY: string;
     AGENTS_DOMAIN: string
     AGENTS_PORT: string
     YYYYY_DOMAIN: string
