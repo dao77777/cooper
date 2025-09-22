@@ -7,14 +7,14 @@ main:
       stages:
         # Build & push agents
         - name: docker build
-          script: docker build -t ${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}/agents:latest ./agents
+          script: docker build -t ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_URL}/agents:latest ./agents
         - name: docker push
-          script: docker push ${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}/agents:latest
+          script: docker push ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_URL}/agents:latest
         # Build & push yyyyy
         - name: docker build
-          script: docker build -t ${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}/yyyyy:latest ./yyyyy
+          script: docker build -t ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_URL}/yyyyy:latest ./yyyyy
         - name: docker push
-          script: docker push ${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}/yyyyy:latest
+          script: docker push ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_URL}/yyyyy:latest
         # Deploy by ssh connecting to my tencent server
         - name: deploy
           image: tencentcom/ssh
@@ -25,10 +25,10 @@ main:
             port: 22
             script:
               - cd ~/cooper
-              - echo ${CNB_DOCKER_REGISTRY}
-              - echo ${CNB_REPO_SLUG_LOWERCASE}
-              - export CNB_DOCKER_REGISTRY=${CNB_DOCKER_REGISTRY}
-              - export CNB_REPO_SLUG_LOWERCASE=${CNB_REPO_SLUG_LOWERCASE}
+              # - echo ${CNB_DOCKER_REGISTRY}
+              # - echo ${CNB_REPO_SLUG_LOWERCASE}
+              # - export CNB_DOCKER_REGISTRY=${CNB_DOCKER_REGISTRY}
+              # - export CNB_REPO_SLUG_LOWERCASE=${CNB_REPO_SLUG_LOWERCASE}
               # - export BYTE_DANCE_AI_MODEL_API_KEY=${BYTE_DANCE_AI_MODEL_API_KEY}
               # - export POSTGRES_CONNECTION=${POSTGRES_CONNECTION}
               # - export YYYYY_PORT=${YYYYY_PORT}
