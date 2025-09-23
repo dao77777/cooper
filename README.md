@@ -50,10 +50,11 @@ Frontend Name: xxxxx
 
 ## Commit Lint
 
-- feat: 代表feature
-- doc: 代表文档
-- fix: 代表修bug
-- refactor: 代表重构
+- chore
+- feat
+- doc
+- fix
+- refactor
 
 ## Database Design
 
@@ -115,3 +116,92 @@ Auto video generate
   - Version manage 
   - Publish to other platform 
   - SCheduled task
+
+
+Response data format
+- code
+- msg
+- data
+
+general
+- id
+- createdAt
+- updatedAt
+
+user
+- username: string
+- password: string
+- phone: string
+- email: string
+- avatar: string
+- nickname: string
+
+chat
+- userId: string
+- summary: string
+
+chat_knowledge_own
+- chatId: string
+- knowledgeId: string
+
+chatMessage
+- chatId: string
+- prevId: string
+- type: 'USER' | 'LLM'
+- content: json
+
+knowledge
+- userId: string
+- content: string
+- vector: embbeding
+
+Controller
+- `/auth`
+  - `Post signup`: public
+    - In: `{ username: string(min:5, max:20), password: string(min: 5, max: 20) }`
+    - Out: `token: string`
+    - Error
+      - `400`, `${field} format invalid, must be ${format}`
+      - `409`, `username already exists`
+  - `Post login`: public
+    - In: `{ username: string, passowrd: string }`
+    - Out: `token: string`
+    - Error
+      - `401`, `authenticate failed`
+      - `404`, `username does not exists, please signup first`
+      - `429`, `too many request, please try again later`
+    - rateLimit: 3/min
+  - `Put password`
+    - In: `{ password: string, newPassword: string(min: 5, max: 20) }`
+    - Out: `undefined`
+    - Error
+      - `400`, `${field} format invalid, must be ${format}`
+      - `401`, `authenticate failed, please login first`
+      - `401`, `password is not correct`
+      - `429`, `too many request, please try again later`
+    - rateLimit: 3/min
+- `/user`
+  - `Put info`
+    - In: `{ avatar?: string(url), nickname?: string(min: 1, max: 20) }`
+    - Out: `undefined`
+    - Error
+      - `400`, `${field} format invalid, must be ${format}`
+      - `401`, `authenticate failed, please login first`
+- `/object`
+  - `Get temporary-credential`
+    - In: `undefined`
+    - Out: `TencentSTS`
+    - Error
+      - `401`, `authenticate failed, please login first`
+- `/ai`
+  - `Get chat/list`
+  - `Post chat`
+  - `Delete chat/:id`
+  - `Get chat/:id/knowledge/list`
+  - `Post chat/:id/knowledge`
+  - `Delete chat/:id/knowledge/:id`
+  - `Get chat/:id/chat-message/list`
+  - `Post chat/:id/chat-message`
+  - `Post chat/:id/chat-message/retry`
+  - `Post knowledge`
+  - `Delete knowledge/:id`
