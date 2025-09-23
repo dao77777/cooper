@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   yyyyy:
     image: ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_SLUG}/yyyyy:latest

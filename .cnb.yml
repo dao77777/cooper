@@ -25,6 +25,7 @@ main:
             port: 22
             script:
               - cd ~/cooper
+              - cat ~/.env
               # - echo ${CNB_REPO_SLUG_LOWERCASE}
               # - export CNB_DOCKER_REGISTRY=${CNB_DOCKER_REGISTRY}
               # - export CNB_REPO_SLUG_LOWERCASE=${CNB_REPO_SLUG_LOWERCASE}
