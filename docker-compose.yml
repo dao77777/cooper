@@ -1,18 +1,17 @@
 services:
   yyyyy:
     image: ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_SLUG}/yyyyy:latest
-    container_name: yyyyy
-    # environment:
-    #   - TENCENT_POSTGRES_CONNECTION_STRING=${TENCENT_POSTGRES_CONNECTION_STRING}
-    #   - YYYYY_PORT=${YYYYY_PORT}
+    container_name: 
+    env_file:
+      - ~/.env
     ports:
       - "8001:8001"
     restart: unless-stopped
   agents:
     image: ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_SLUG}/agents:latest
     container_name: agents
-    # environment:
-    #   - API_KEY=${BYTE_DANCE_AI_MODEL_API_KEY}
+    env_file:
+      - ~/.env
     ports:
       - "8000:8000"
     restart: unless-stopped
