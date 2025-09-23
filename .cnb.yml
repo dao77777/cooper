@@ -34,4 +34,4 @@ main:
               # - export YYYYY_PORT=${YYYYY_PORT}
               - git pull
               - docker compose pull
-              - docker compose up --build -d --env-file ~/.env
+              - docker compose --env-file ~/.env up --build -d 
