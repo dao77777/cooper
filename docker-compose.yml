@@ -1,7 +1,7 @@
 services:
   yyyyy:
     image: ${CNB_DOCKER_REGISTRY}/${CNB_COOPER_REPOSITORY_SLUG}/yyyyy:latest
-    container_name: 
+    container_name: yyyyy
     env_file:
       - ~/.env
     ports:
