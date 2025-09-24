@@ -80,6 +80,13 @@ Frontend Name: xxxxx
 
 ## Other
 
+```bash
+## .env load
+if [ -f ~/.env ]; then
+  export $(grep -v '^#' ~/.env | xargs)
+fi
+```
+
 - [ ] cache, artifacts concept
 - [ ] how to manage binary service in linux server
 - [ ] choose a plan to solve cicd problem: cnb.cool, github ??, gitlab
@@ -150,6 +157,10 @@ chatMessage
 - type: 'USER' | 'LLM'
 - content: json
 
+chatMessage_knowledge_own
+- chatMessageId: string
+- knowledgeId: string
+
 knowledge
 - userId: string
 - content: string
@@ -158,50 +169,65 @@ knowledge
 Controller
 - `/auth`
   - `Post signup`: public
-    - In: `{ username: string(min:5, max:20), password: string(min: 5, max: 20) }`
-    - Out: `token: string`
+    - In
+      - username: string(min:5, max:20)
+      - password: string(min: 5, max: 20)
+    - Out: token
     - Error
-      - `400`, `${field} format invalid, must be ${format}`
-      - `409`, `username already exists`
+      - 400: {field} format invalid, must be {format}
+      - 409: username already exists
   - `Post login`: public
-    - In: `{ username: string, passowrd: string }`
-    - Out: `token: string`
+    - In: json
+      - username: string
+      - passowrd: string
+    - Out: token
     - Error
-      - `401`, `authenticate failed`
-      - `404`, `username does not exists, please signup first`
-      - `429`, `too many request, please try again later`
+      - 401: authenticate failed
+      - 404: username does not exists, please signup first
+      - 429: too many request, please try again later
     - rateLimit: 3/min
   - `Put password`
-    - In: `{ password: string, newPassword: string(min: 5, max: 20) }`
-    - Out: `undefined`
+    - In: json
+      - password: string
+      - newPassword: string(min: 5, max: 20)
     - Error
-      - `400`, `${field} format invalid, must be ${format}`
-      - `401`, `authenticate failed, please login first`
-      - `401`, `password is not correct`
-      - `429`, `too many request, please try again later`
+      - 400, {field} format invalid, must be {format}
+      - 401, authenticate failed, please login first
+      - 401, password is not correct
+      - 429, too many request, please try again later
     - rateLimit: 3/min
 - `/user`
   - `Put info`
-    - In: `{ avatar?: string(url), nickname?: string(min: 1, max: 20) }`
-    - Out: `undefined`
+    - In
+      - avatar?: string(url)
+      - nickname?: string(min: 1, max: 20)
     - Error
-      - `400`, `${field} format invalid, must be ${format}`
-      - `401`, `authenticate failed, please login first`
+      - 400: {field} format invalid, must be {format}
+      - 401: authenticate failed, please login first
 - `/object`
   - `Get temporary-credential`
-    - In: `undefined`
-    - Out: `TencentSTS`
+    - In
+    - Out: TencentSTS
     - Error
-      - `401`, `authenticate failed, please login first`
+      - 401, authenticate failed, please login first
 - `/ai`
   - `Get chat/list`
   - `Post chat`
   - `Delete chat/:id`
+  - 
   - `Get chat/:id/knowledge/list`
   - `Post chat/:id/knowledge`
   - `Delete chat/:id/knowledge/:id`
+  - 
   - `Get chat/:id/chat-message/list`
   - `Post chat/:id/chat-message`
+    - In
+      - `chatMessage-knowledge` // TODO
   - `Post chat/:id/chat-message/retry`
+  - 
   - `Post knowledge`
   - `Delete knowledge/:id`
+
+question
+
+reference file
