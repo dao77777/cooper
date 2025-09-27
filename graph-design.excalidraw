@@ -1,7 +1,7 @@
 {
   "type": "excalidraw",
   "version": 2,
-  "source": "https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor",
+  "source": "https://excalidraw-jetbrains-plugin",
   "elements": [
     {
       "id": "3YrisnH9YufLxryo8nhg-",
@@ -3709,9 +3709,7 @@
     }
   ],
   "appState": {
-    "gridSize": 20,
-    "gridStep": 5,
-    "gridModeEnabled": false,
+    "gridSize": null,
     "viewBackgroundColor": "#ffffff"
   },
   "files": {}
