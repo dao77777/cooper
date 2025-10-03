@@ -8,6 +8,8 @@ import (
 	"github.com/gogf/gf/v2/os/gcmd"
 
 	"agents/internal/controller/hello"
+	my_test "agents/internal/controller/my-test"
+	"agents/internal/middleware"
 )
 
 var (
@@ -19,10 +21,21 @@ var (
 			s := g.Server()
 			s.SetPort(8000)
 			s.Group("/", func(group *ghttp.RouterGroup) {
-				group.Middleware(ghttp.MiddlewareHandlerResponse)
-				group.Bind(
-					hello.NewV1(),
+				group.Middleware(
+					middleware.CORS,
+					middleware.Res,
+					middleware.Auth,
 				)
+				group.Group("/hello", func(group *ghttp.RouterGroup) {
+					group.Bind(
+						hello.NewV1(),
+					)
+				})
+				group.Group("/my-test", func(group *ghttp.RouterGroup) {
+					group.Bind(
+						my_test.NewV1(),
+					)
+				})
 			})
 			s.Run()
 			return nil

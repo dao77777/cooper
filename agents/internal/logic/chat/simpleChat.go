@@ -28,7 +28,7 @@ func NewChatModels() *sClient {
 
 func (cm sClient) GetDeepseekModel() *openai.Client {
 	if cm.Client == nil {
-		apiKey := os.Getenv("API_KEY")
+		apiKey := os.Getenv("BYTE_DANCE_AI_MODEL_API_KEY")
 		config := openai.DefaultConfig(apiKey)
 		config.BaseURL = "https://ark.cn-beijing.volces.com/api/v3"
 		cm.Client = openai.NewClientWithConfig(config)

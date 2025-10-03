@@ -58,84 +58,12 @@ Frontend Name: xxxxx
 
 ## Database Design
 
-**Chat**
-- content
-- type: Enum(User, LLM, Tool)
-- createdAt
-- topic: timestamp + text
-
-**User**
-- username
-- password
-
-## Flow Design
-
-**Dialogue Flow**: TODO
-
-## Document Ref
-
-[MCP Official](https://modelcontextprotocol.io/docs/getting-started/intro)
-
-[Eino](https://www.cloudwego.io/docs/eino/)
-
-## Other
-
-```bash
-## .env load
-if [ -f ~/.env ]; then
-  export $(grep -v '^#' ~/.env | xargs)
-fi
-```
-
-- [ ] cache, artifacts concept
-- [ ] how to manage binary service in linux server
-- [ ] choose a plan to solve cicd problem: cnb.cool, github ??, gitlab
-
-Auto video generate 
-
-- Ability
-  - Query
-    - Text search
-    - Image search
-    - Video search
-    - Link download
-    - Map search
-    - Social Media 
-  - Transform
-    - Text2Image(DALLE3)
-    - Image2Image
-    - Image2Text
-    - OCR
-    - Video2Text
-    - Text2Video(Cpacut)
-    - Text2Text
-  - Display
-    - Charts
-  - Knowledge(RAG)
-    - Local: PDF, TXT, DOC, DOCX 
-    - Online: we can specify  update frequency
-    - How to segment
-    - How to search
-  - Memory
-    - Chat history
-    - Long-term memory
-  - File system
-  - Version manage 
-  - Publish to other platform 
-  - SCheduled task
-
-
-Response data format
-- code
-- msg
-- data
-
-general
+**general**
 - id
 - createdAt
 - updatedAt
 
-user
+**user**
 - username: string
 - password: string
 - phone: string
@@ -143,28 +71,30 @@ user
 - avatar: string
 - nickname: string
 
-chat
+**chat**
 - userId: string
 - summary: string
 
-chat_knowledge_own
+**chat_knowledge_own**
 - chatId: string
 - knowledgeId: string
 
-chatMessage
+**chatMessage**
 - chatId: string
 - prevId: string
 - type: 'USER' | 'LLM'
 - content: json
 
-chatMessage_knowledge_own
+**chatMessage_knowledge_own**
 - chatMessageId: string
 - knowledgeId: string
 
-knowledge
+**knowledge**
 - userId: string
 - content: string
 - vector: embbeding
+
+## Api Design
 
 Controller
 - `/auth`
@@ -228,6 +158,79 @@ Controller
   - `Post knowledge`
   - `Delete knowledge/:id`
 
-question
+## Flow Design
 
-reference file
+**Dialogue Flow**: TODO
+
+## Document Ref
+
+[MCP Official](https://modelcontextprotocol.io/docs/getting-started/intro)
+
+[Eino](https://www.cloudwego.io/docs/eino/)
+
+## Other
+
+```bash
+## .env load
+if [ -f ~/.env ]; then
+  export $(grep -v '^#' ~/.env | xargs)
+fi
+```
+
+- [ ] cache, artifacts concept
+- [ ] how to manage binary service in linux server
+- [ ] choose a plan to solve cicd problem: cnb.cool, github ??, gitlab
+
+Auto video generate 
+
+- Ability
+  - Query
+    - Text search
+    - Image search
+    - Video search
+    - Link download
+    - Map search
+    - Social Media 
+  - Transform
+    - Text2Image(DALLE3)
+    - Image2Image
+    - Image2Text
+    - OCR
+    - Video2Text
+    - Text2Video(Cpacut)
+    - Text2Text
+  - Display
+    - Charts
+  - Knowledge(RAG)
+    - Local: PDF, TXT, DOC, DOCX 
+    - Online: we can specify  update frequency
+    - How to segment
+    - How to search
+  - Memory
+    - Chat history
+    - Long-term memory
+  - File system
+  - Version manage 
+  - Publish to other platform 
+  - SCheduled task
+
+
+Response data format
+- code
+- msg
+- data
+
+# 
+
+- [ ] 英国暴乱
+- [ ] 政治经济学, 1844经济学哲学手稿
+- [ ] AI
+- [ ] 设计, 包豪斯
+- [ ] 函数式
+- [ ] 英语, Nix, Shell, Go(GoFrame)
+- [ ] 文档化
+
+GoFrame
+- [ ] 如何在GoFrame的规范路由中返回单值
+- [ ] 如何在路由中添加元信息并在middleware中拿到
+- [ ] 错误处理
