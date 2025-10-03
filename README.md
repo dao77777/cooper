@@ -233,4 +233,6 @@ Response data format
 GoFrame
 - [ ] 如何在GoFrame的规范路由中返回单值
 - [ ] 如何在路由中添加元信息并在middleware中拿到
-- [ ] 错误处理
+- [x] 错误处理
+
+GoFrame缺少类型细化, 短路操作, 可选链

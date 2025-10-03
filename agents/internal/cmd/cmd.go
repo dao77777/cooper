@@ -37,6 +37,8 @@ var (
 					)
 				})
 			})
+			s.SetOpenApiPath("/api.json")
+			s.SetSwaggerPath("/swagger")
 			s.Run()
 			return nil
 		},

@@ -27,6 +27,7 @@ func Res(r *ghttp.Request) {
 		res["msg"] = map[bool]string{true: "Internal Server Error", false: errWithCode.Message()}[errWithCode.Code() == 68]
 
 		r.Response.WriteStatus(res["code"].(int))
+		r.Response.WriteOver()
 		r.Response.WriteJson(res)
 	} else {
 		res["code"] = 200
@@ -34,6 +35,7 @@ func Res(r *ghttp.Request) {
 		res["data"] = r.GetHandlerResponse()
 
 		r.Response.WriteStatus(res["code"].(int))
+		r.Response.WriteOver()
 		r.Response.WriteJson(res)
 	}
 
